@@ -3,6 +3,13 @@ let selectedModel = null;
 
 const NEXT_DELAY_MS = 600;
 
+// Build reversed question order:
+// Questions 5–8 first, then 1–4
+const ORDERED_DATA = [
+  ...window.LLM_DATA.slice(4, 8),
+  ...window.LLM_DATA.slice(0, 4)
+];
+
 const promptEl = document.getElementById("prompt");
 const generateBtn = document.getElementById("generateBtn");
 const loadingEl = document.getElementById("loading");
@@ -15,7 +22,7 @@ function timestamp() {
 }
 
 function loadRound() {
-  const q = window.LLM_DATA[round];
+  const q = ORDERED_DATA[round];
   promptEl.textContent = q.prompt;
 
   // Reset UI
@@ -42,6 +49,7 @@ function loadRound() {
     {
       type: "round_loaded",
       round: round + 1,
+      questionIndex: window.LLM_DATA.indexOf(q) + 1,
       timestamp: timestamp()
     },
     "*"
@@ -61,7 +69,6 @@ function sendChoiceToQualtrics(model) {
 }
 
 generateBtn.addEventListener("click", () => {
-  // Disable Generate immediately
   generateBtn.disabled = true;
 
   window.parent.postMessage(
@@ -105,7 +112,6 @@ document.querySelectorAll(".answer-wrapper").forEach(wrapper => {
 
     sendChoiceToQualtrics(selectedModel);
 
-    // Delay before showing Next button
     setTimeout(() => {
       nextBtn.classList.remove("hidden");
     }, NEXT_DELAY_MS);
@@ -125,7 +131,7 @@ nextBtn.addEventListener("click", () => {
 
   round++;
 
-  if (round >= window.LLM_DATA.length) {
+  if (round >= ORDERED_DATA.length) {
     window.parent.postMessage(
       {
         type: "finishedAllRounds",
