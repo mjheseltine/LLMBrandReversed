@@ -5,10 +5,7 @@ const NEXT_DELAY_MS = 600;
 
 // ---------- MODEL DEFINITIONS (NO-NAME VERSION) ----------
 
-// True model IDs (what data.js + Qualtrics use)
 const MODEL_IDS = ["A", "B", "C", "D"];
-
-// Visual-only color labels
 const COLOR_LABELS = ["Purple model", "Blue model", "Orange model", "Green model"];
 const COLOR_CLASSES = ["purple", "blue", "orange", "green"];
 
@@ -16,10 +13,11 @@ const COLOR_CLASSES = ["purple", "blue", "orange", "green"];
 const modelOrder = [...MODEL_IDS].sort(() => Math.random() - 0.5);
 
 // ---------- REVERSED QUESTION ORDER ----------
-// Questions 5–8 first, then 1–4
+// data.js is: General (0–3), Political (4–7)
+// Reversed condition should be: Political → General
 const ORDERED_DATA = [
-  ...window.LLM_DATA.slice(4, 8),
-  ...window.LLM_DATA.slice(0, 4)
+  ...window.LLM_DATA.slice(4), // Political
+  ...window.LLM_DATA.slice(0, 4) // General
 ];
 
 // ---------- DOM REFERENCES ----------
@@ -40,7 +38,7 @@ const timestamp = () => Date.now();
 window.parent.postMessage(
   {
     type: "model_order",
-    value: modelOrder.join(","), // e.g. "B,D,A,C"
+    value: modelOrder.join(","),
     timestamp: timestamp()
   },
   "*"
@@ -67,15 +65,12 @@ function loadRound() {
     const label = wrapper.querySelector(".model-label");
     const card = wrapper.querySelector(".answer-card");
 
-    // Reset classes
     wrapper.className = "answer-wrapper";
     label.className = "model-label";
 
-    // Apply color
     wrapper.classList.add(COLOR_CLASSES[i]);
     label.classList.add(COLOR_CLASSES[i]);
 
-    // Assign data + text
     wrapper.dataset.model = modelId;
     label.textContent = COLOR_LABELS[i];
     card.textContent = q.answers[modelId];
@@ -100,12 +95,10 @@ generateBtn.addEventListener("click", () => {
 
 document.querySelectorAll(".answer-wrapper").forEach(wrapper => {
   wrapper.addEventListener("click", () => {
-    document
-      .querySelectorAll(".answer-card")
+    document.querySelectorAll(".answer-card")
       .forEach(c => c.classList.remove("selected"));
 
     wrapper.querySelector(".answer-card").classList.add("selected");
-
     selectedModel = wrapper.dataset.model;
 
     window.parent.postMessage(
