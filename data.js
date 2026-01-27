@@ -1,46 +1,6 @@
 window.LLM_DATA = [
 
-/* ---------------- GENERAL KNOWLEDGE ---------------- */
-
-{
-  prompt: "Why do total solar eclipses occur?",
-  answers: {
-    A: "Total solar eclipses occur when the Moon aligns perfectly between Earth and Sun, its disk exactly covering the Sun’s photosphere due to precise orbital scales.",
-    B: "Total solar eclipses happen when the Moon passes precisely between Earth and Sun, fully blocking sunlight along a narrow path, due to their aligned orbits and apparent sizes in the sky.",
-    C: "Total solar eclipses occur when the Moon passes directly between the Earth and Sun, completely blocking sunlight along a narrow path on Earth’s surface.",
-    D: "Total solar eclipses occur when the Moon passes directly between Earth and the Sun, blocking sunlight. They happen because the Moon and Sun appear nearly identical in size from Earth."
-  }
-},
-{
-  prompt: "What causes earthquakes?",
-  answers: {
-    A: "Earthquakes result from built-up stress along tectonic plate boundaries releasing suddenly, causing rocks to fracture and seismic waves to propagate through Earth’s crust.",
-    B: "Earthquakes occur when stress along faults in the Earth’s crust suddenly releases, causing tectonic plates to slip and generate seismic waves; they highlight the need for strong building standards and readiness.",
-    C: "Earthquakes happen when tectonic plates shift along faults, releasing energy as seismic waves, often due to stress buildup in Earth’s crust.",
-    D: "Earthquakes are caused by sudden release of energy when tectonic plates shift along fault lines. Accumulated stress from plate movement overcomes friction, causing the ground to shake as energy radiates outward."
-  }
-},
-{
-  prompt: "What does a philologist do?",
-  answers: {
-    A: "A philologist examines languages’ historical evolution, tracing words, grammar, sounds, and texts to uncover cultural histories and linguistic family trees.",
-    B: "A philologist studies historical languages, ancient texts, and their development to reveal cultural roots, preserve traditional knowledge, and interpret literature from earlier eras through careful linguistic analysis.",
-    C: "A philologist studies language development, structure, history, and meaning, often analyzing texts to understand linguistic evolution, cultural context, and relationships between languages.",
-    D: "A philologist studies language evolution, historical texts, and linguistic relationships. They analyze ancient manuscripts, trace word origins, reconstruct dead languages, and examine how languages change over time through written records."
-  }
-},
-{
-  prompt: "Why do seasons change throughout the year?",
-  answers: {
-    A: "Seasons change because Earth’s 23.5-degree axial tilt varies sunlight exposure by hemisphere during its yearly orbit around the Sun, altering day length and intensity.",
-    B: "Seasons change because Earth’s axis tilts 23.5 degrees while orbiting the Sun, causing varying sunlight and temperature across regions; this natural cycle supports agriculture and underscores adaptation to predictable patterns.",
-    C: "Seasonal changes occur because Earth’s axis is tilted relative to its orbit around the Sun, altering sunlight angle and duration, producing warmer summers and colder winters in each hemisphere.",
-    D: "Seasons change because Earth's tilted axis causes different hemispheres to receive varying sunlight amounts as Earth orbits the Sun. When tilted toward the Sun, a hemisphere experiences summer; tilted away means winter."
-  }
-},
-
 /* ---------------- POLITICAL ---------------- */
-
 {
   prompt: "What does the Affordable Care Act (ACA) actually do?",
   answers: {
@@ -75,6 +35,44 @@ window.LLM_DATA = [
     B: "Gerrymandering is legal under current Supreme Court precedent (2019 ruling), allowing state legislatures to draw district lines for partisan advantage; both major parties have employed the practice over time.",
     C: "Gerrymandering is legal in many forms, but racial or discriminatory gerrymandering is unconstitutional; courts may intervene, yet partisan gerrymandering remains largely unchecked in U.S. politics.",
     D: "Gerrymandering is unfortunately legal in most cases. This allows politicians to manipulate district boundaries for partisan advantage, undermining fair representation and entrenching power despite the Supreme Court's refusal to intervene."
+  }
+},
+
+/* ---------------- GENERAL KNOWLEDGE ---------------- */
+{
+  prompt: "Why do total solar eclipses occur?",
+  answers: {
+    A: "Total solar eclipses occur when the Moon aligns perfectly between Earth and Sun, its disk exactly covering the Sun’s photosphere due to precise orbital scales.",
+    B: "Total solar eclipses happen when the Moon passes precisely between Earth and Sun, fully blocking sunlight along a narrow path, due to their aligned orbits and apparent sizes in the sky.",
+    C: "Total solar eclipses occur when the Moon passes directly between the Earth and Sun, completely blocking sunlight along a narrow path on Earth’s surface.",
+    D: "Total solar eclipses occur when the Moon passes directly between Earth and the Sun, blocking sunlight. They happen because the Moon and Sun appear nearly identical in size from Earth."
+  }
+},
+{
+  prompt: "What causes earthquakes?",
+  answers: {
+    A: "Earthquakes result from built-up stress along tectonic plate boundaries releasing suddenly, causing rocks to fracture and seismic waves to propagate through Earth’s crust.",
+    B: "Earthquakes occur when stress along faults in the Earth’s crust suddenly releases, causing tectonic plates to slip and generate seismic waves; they highlight the need for strong building standards and readiness.",
+    C: "Earthquakes happen when tectonic plates shift along faults, releasing energy as seismic waves, often due to stress buildup in Earth’s crust.",
+    D: "Earthquakes are caused by sudden release of energy when tectonic plates shift along fault lines. Accumulated stress from plate movement overcomes friction, causing the ground to shake as energy radiates outward."
+  }
+},
+{
+  prompt: "What does a philologist do?",
+  answers: {
+    A: "A philologist examines languages’ historical evolution, tracing words, grammar, sounds, and texts to uncover cultural histories and linguistic family trees.",
+    B: "A philologist studies historical languages, ancient texts, and their development to reveal cultural roots, preserve traditional knowledge, and interpret literature from earlier eras through careful linguistic analysis.",
+    C: "A philologist studies language development, structure, history, and meaning, often analyzing texts to understand linguistic evolution, cultural context, and relationships between languages.",
+    D: "A philologist studies language evolution, historical texts, and linguistic relationships. They analyze ancient manuscripts, trace word origins, reconstruct dead languages, and examine how languages change over time through written records."
+  }
+},
+{
+  prompt: "Why do seasons change throughout the year?",
+  answers: {
+    A: "Seasons change because Earth’s 23.5-degree axial tilt varies sunlight exposure by hemisphere during its yearly orbit around the Sun, altering day length and intensity.",
+    B: "Seasons change because Earth’s axis tilts 23.5 degrees while orbiting the Sun, causing varying sunlight and temperature across regions; this natural cycle supports agriculture and underscores adaptation to predictable patterns.",
+    C: "Seasonal changes occur because Earth’s axis is tilted relative to its orbit around the Sun, altering sunlight angle and duration, producing warmer summers and colder winters in each hemisphere.",
+    D: "Seasons change because Earth's tilted axis causes different hemispheres to receive varying sunlight amounts as Earth orbits the Sun. When tilted toward the Sun, a hemisphere experiences summer; tilted away means winter."
   }
 }
 
