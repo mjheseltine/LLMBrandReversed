@@ -13,11 +13,12 @@ const COLOR_CLASSES = ["purple", "blue", "orange", "green"];
 const modelOrder = [...MODEL_IDS].sort(() => Math.random() - 0.5);
 
 // ---------- REVERSED QUESTION ORDER ----------
-// data.js is: General (0–3), Political (4–7)
-// Reversed condition should be: Political → General
+// data.js order (regular): Political (0–3), General (4–7)
+// Reversed condition: General → Political
+
 const ORDERED_DATA = [
-  ...window.LLM_DATA.slice(4), // Political
-  ...window.LLM_DATA.slice(0, 4) // General
+  ...window.LLM_DATA.slice(4, 8), // General knowledge first
+  ...window.LLM_DATA.slice(0, 4)  // Political second
 ];
 
 // ---------- DOM REFERENCES ----------
@@ -65,12 +66,15 @@ function loadRound() {
     const label = wrapper.querySelector(".model-label");
     const card = wrapper.querySelector(".answer-card");
 
+    // Reset classes
     wrapper.className = "answer-wrapper";
     label.className = "model-label";
 
+    // Apply color
     wrapper.classList.add(COLOR_CLASSES[i]);
     label.classList.add(COLOR_CLASSES[i]);
 
+    // Assign data
     wrapper.dataset.model = modelId;
     label.textContent = COLOR_LABELS[i];
     card.textContent = q.answers[modelId];
